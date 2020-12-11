@@ -1,14 +1,24 @@
 class Timer{
-    constructor(durationInput, startButton, pausebutton){
+    constructor(durationInput, startButton, pauseButton){
         this.durationInput = durationInput;
         this.startButton = startButton;
-        this.pausebutton = pausebutton;
+        this.pauseButton = pauseButton;
 
         this.startButton.addEventListener('click', this.start);
+        this.pauseButton.addEventListener('click', this.pause);
     }
 
-    start(){
-        alert('We are Working....')
+    start = () => {
+        this.tick()
+        this.interval = setInterval(this.tick, 1000);
+    }
+
+    pause = () => {
+        clearInterval(this.interval);
+    }
+
+    tick = () => {
+        console.log('tick')
     }
 }
 
